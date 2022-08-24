@@ -73,6 +73,8 @@ h2 {
   padding: 20px 0px;
 }
 .menu__item {
+  user-select: none;
+  cursor: pointer;
   color: #291e1e;
   margin: 10px;
   font-size: 24px;

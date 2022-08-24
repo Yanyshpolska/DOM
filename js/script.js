@@ -38,23 +38,23 @@ const teas = [
   },
 ];
 
-const title = document.getElementById("header");
-const picture = document.getElementsByClassName("more__picture");
-const description = document.getElementsByClassName("more__about");
+const title = document.querySelector("h2.more__header");
+const picture = document.querySelector("img.more__picture");
+const description1 = document.querySelector("div.more__about");
 
 const clicked = function (event) {
-  for (let i = 0; i < teas.length; i += 1) {
-    if (event.srcElement.innerHTML === teas[i].type) {
-      title.innerHTML = teas[i].type;
-      picture[0].alt = teas[i].type;
-      picture[0].src = teas[i].image;
-      description[0].innerHTML = teas[i].description;
-    }
-  }
+  const objectTea = teas.filter(
+    (obj) => obj.type === event.srcElement.innerHTML
+  )[0];
+  title.innerHTML = objectTea.type;
+  picture.alt = objectTea.type;
+  picture.src = objectTea.image;
+  description1.innerHTML = objectTea.description;
 };
 
 const listOfTeasNames = [];
+
 for (let i = 0; i < teas.length; i += 1) {
-  listOfTeasNames[i] = document.getElementsByTagName("li")[i];
+  listOfTeasNames[i] = document.querySelectorAll("li.menu__item")[i];
   listOfTeasNames[i].onclick = clicked;
 }
